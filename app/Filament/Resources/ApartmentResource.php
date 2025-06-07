@@ -7,7 +7,7 @@ use App\Models\Apartment;
 use App\Models\Contract;
 use App\Models\User;
 use Filament\Tables\Columns\Summarizers\Range;
-
+use Afsakar\LeafletMapPicker\LeafletMapPicker;
 use Filament\Forms\Components\DatePicker;
 use Filament\Forms\Components\FileUpload;
 use Filament\Forms\Components\Hidden;
@@ -81,6 +81,16 @@ class ApartmentResource extends Resource
                 Hidden::make('user_id')
                 ->default(Auth::id()) 
                 ->required(),
+                LeafletMapPicker::make('location')
+                ->label('Байршил сонгох')
+                ->height('500px')
+                ->defaultLocation([47.920315, 106.917292])
+                ->defaultZoom(15)
+                ->draggable()
+                ->clickable()
+                ->myLocationButtonLabel('Миний байршил')
+                ->tileProvider('Улаанбаатар')
+                ->columnSpanFull()
             ]);
     }
 

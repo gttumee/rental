@@ -20,6 +20,10 @@ class Apartment extends Model
         'rent_price',
         'other_info',
         'user_id',
+        'location'
+    ];
+     protected $casts = [
+        'location' => 'array',
     ];
 
     public function contracts()

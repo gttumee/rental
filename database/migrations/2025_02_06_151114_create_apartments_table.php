@@ -23,6 +23,7 @@ return new class extends Migration
             $table->string('file')->nullable(); 
             $table->decimal('rent_price', 10, 2)->nullable();
             $table->text('other_info')->nullable();
+            $table->text('location')->nullable();
             $table->timestamps();
         });
     }
